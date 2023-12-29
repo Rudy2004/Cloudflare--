@@ -13,7 +13,7 @@ const App = () => {
   // Fetch data from the /organization-chart endpoint
   const fetchOrganizationChart = async () => {
     try {
-      const response = await fetch('/.netlify/functions/organization-chart');
+      const response = await fetch(); // add in the worker script from the get request
       const data = await response.json();
       setOrganizationChart(data.organization.departments);
     } catch (error) {
@@ -24,7 +24,7 @@ const App = () => {
   // Fetch data from the /me endpoint
   const fetchMeData = async () => {
     try {
-      const response = await fetch('/.netlify/functions/me');
+      const response = await fetch(); // add in worker script link from the get request
       const data = await response.json();
       setMeData(data);
     } catch (error) {
