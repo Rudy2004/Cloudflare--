@@ -18,9 +18,15 @@ addEventListener('fetch', (event) => {
   
   // Function to convert CSV to JSON (implement your conversion logic)
   function convertCsvToJson(csvData) {
-    // Implement CSV to JSON conversion logic (using a library like Papaparse, for example)
-    // Return the organization chart structure
-    return [];
+   // Parse CSV using PapaParse
+  const { data, errors, meta } = Papa.parse(csvText, { header: true });
+
+  if (errors.length > 0) {
+    console.error('CSV Parsing Error:', errors);
+    throw new Error('Failed to parse CSV.');
+  }
+
+  return data;
   }
   
 
